@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>trip-tip</h1>
+
+    <container>
+
+
+        <div class="tool-bar">
+            <div>
+                <input type="search" id="mySearch" name="q" placeholder="Insert location...">
+                <button onclick="hendelInput()">Search</button>
+            </div>
+            <button onclick="getPosition()">My Location</button>
+        
+        <div class="Descriptive">
+        <div class="Descriptive-location"></div>
+        <div class="weather"></div>
+        </div>
+    </div>
+        <section>
+            <div id="map"></div>
+        </section>
+
+    </container>
+
+
+
+    <script>
+        function initMap(lat, lng) {
+            if (!lat) lat = 32.0749831;
+            if (!lng) lng = 34.9120554;
+
+            var map = new google.maps.Map(
+                document.getElementById('map'),
+                {
+                    center: { lat: lat, lng: lng },
+                    zoom: 15
+                }
+            );
+            var marker = new google.maps.Marker({
+                position: { lat: lat, lng: lng },
+                map: map,
+                title: 'Hello World!'
+            });
+
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEtHulZNwxlmOBlqI_XMkQ9vE9kGSa2aw&callback=initMap" async
+        defer></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
